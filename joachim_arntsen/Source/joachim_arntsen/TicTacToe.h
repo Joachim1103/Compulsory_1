@@ -8,7 +8,7 @@
 
 class USpringArmComponent;
 class UCameraComponent;
-class UMaterial;
+class UStaticMeshComponent;
 
 UCLASS()
 class JOACHIM_ARNTSEN_API ATicTacToe : public APawn
@@ -32,28 +32,13 @@ public:
 
 private:
 
-	UPROPERTY(VisibleAnywhere)
-	UStaticMeshComponent* Mesh1;
-	UPROPERTY(VisibleAnywhere)
-	UStaticMeshComponent* Mesh2;
-	UPROPERTY(VisibleAnywhere)
-	UStaticMeshComponent* Mesh3;
-	UPROPERTY(VisibleAnywhere)
-	UStaticMeshComponent* Mesh4;
-	UPROPERTY(VisibleAnywhere)
-	UStaticMeshComponent* Mesh5;
-	UPROPERTY(VisibleAnywhere)
-	UStaticMeshComponent* Mesh6;
-	UPROPERTY(VisibleAnywhere)
-	UStaticMeshComponent* Mesh7;
-	UPROPERTY(VisibleAnywhere)
-	UStaticMeshComponent* Mesh8;
-	UPROPERTY(VisibleAnywhere)
-	UStaticMeshComponent* Mesh9;
+	UPROPERTY(EditAnywhere)
+	TArray<UStaticMeshComponent*> Meshes;
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(EditAnywhere)
 	USpringArmComponent* SpringArm;
 
+	UPROPERTY(EditAnywhere)
 	UCameraComponent* Camera;
 
 	UPROPERTY(EditAnywhere)
@@ -62,9 +47,12 @@ private:
 	UPROPERTY(EditAnywhere)
 	UMaterial* Blue;
 
-	void ChangeColorRed();
+	UPROPERTY(EditAnywhere)
+	UMaterial* Grey;
 
-	void ChangeColorBlue();
+	int TurnCounter;
+
+	TArray<bool> MeshStatus;
 
 	void Change1();
 	void Change2();
@@ -75,4 +63,6 @@ private:
 	void Change7();
 	void Change8();
 	void Change9();
+
+	void TurnController(int meshindex);
 };
