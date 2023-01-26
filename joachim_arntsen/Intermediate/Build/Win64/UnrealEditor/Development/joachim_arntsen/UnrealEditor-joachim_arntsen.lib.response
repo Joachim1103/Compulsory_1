@@ -1,0 +1,17 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-joachim_arntsen.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Programming\Github\Compulsory_1\joachim_arntsen\Intermediate\Build\Win64\joachim_arntsenEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"C:\Programming\Github\Compulsory_1\joachim_arntsen\Intermediate\Build\Win64\UnrealEditor\Development\joachim_arntsen\joachim_arntsen.init.gen.cpp.obj"
+"C:\Programming\Github\Compulsory_1\joachim_arntsen\Intermediate\Build\Win64\UnrealEditor\Development\joachim_arntsen\joachim_arntsenGameModeBase.gen.cpp.obj"
+"C:\Programming\Github\Compulsory_1\joachim_arntsen\Intermediate\Build\Win64\UnrealEditor\Development\joachim_arntsen\TicTacToe.gen.cpp.obj"
+"C:\Programming\Github\Compulsory_1\joachim_arntsen\Intermediate\Build\Win64\UnrealEditor\Development\joachim_arntsen\joachim_arntsen.cpp.obj"
+"C:\Programming\Github\Compulsory_1\joachim_arntsen\Intermediate\Build\Win64\UnrealEditor\Development\joachim_arntsen\joachim_arntsenGameModeBase.cpp.obj"
+"C:\Programming\Github\Compulsory_1\joachim_arntsen\Intermediate\Build\Win64\UnrealEditor\Development\joachim_arntsen\TicTacToe.cpp.obj"
+"C:\Programming\Github\Compulsory_1\joachim_arntsen\Intermediate\Build\Win64\UnrealEditor\Development\joachim_arntsen\Default.rc2.res"
+/OUT:"C:\Programming\Github\Compulsory_1\joachim_arntsen\Intermediate\Build\Win64\UnrealEditor\Development\joachim_arntsen\UnrealEditor-joachim_arntsen.lib"

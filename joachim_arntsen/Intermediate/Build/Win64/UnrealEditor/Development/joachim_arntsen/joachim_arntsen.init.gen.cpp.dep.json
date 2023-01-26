@@ -1,0 +1,13 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\programming\\github\\compulsory_1\\joachim_arntsen\\intermediate\\build\\win64\\unrealeditor\\inc\\joachim_arntsen\\uht\\joachim_arntsen.init.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\programming\\github\\compulsory_1\\joachim_arntsen\\intermediate\\build\\win64\\joachim_arntseneditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "c:\\programming\\github\\compulsory_1\\joachim_arntsen\\intermediate\\build\\win64\\unrealeditor\\development\\joachim_arntsen\\definitions.joachim_arntsen.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

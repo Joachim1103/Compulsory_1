@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "joachim_arntsen",
+			"Path": "C:\\Programming\\Github\\Compulsory_1\\joachim_arntsen\\Source\\joachim_arntsen.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "joachim_arntsenEditor",
+			"Path": "C:\\Programming\\Github\\Compulsory_1\\joachim_arntsen\\Source\\joachim_arntsenEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
