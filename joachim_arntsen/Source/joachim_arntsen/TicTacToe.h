@@ -48,7 +48,7 @@ private:
 	UMaterial* Blue;
 
 	UPROPERTY(EditAnywhere)
-	UMaterial* Grey;
+	UMaterial* White;
 
 	int TurnCounter;
 
@@ -65,4 +65,10 @@ private:
 	void Change9();
 
 	void TurnController(int meshindex);
+
+	bool WinConditionBlue();
+
+	bool WinConditionRed();
+
+	void EndGame();
 };

@@ -2,6 +2,8 @@
 
 
 #include "TicTacToe.h"
+
+#include "HDRHelper.h"
 #include "Components/SphereComponent.h"
 #include "Containers/Array.h"
 #include "Components/StaticMeshComponent.h"
@@ -10,6 +12,7 @@
 #include "Camera/CameraComponent.h"
 #include "Components/InputComponent.h"
 #include "UObject/ConstructorHelpers.h"
+#include "Engine/Engine.h"
 
 // Sets default values
 ATicTacToe::ATicTacToe()
@@ -62,7 +65,7 @@ ATicTacToe::ATicTacToe()
 
 	Red = CreateDefaultSubobject<UMaterial>(TEXT("Red"));
 	Blue = CreateDefaultSubobject<UMaterial>(TEXT("Blue"));
-	Grey = CreateDefaultSubobject<UMaterial>(TEXT("Grey"));
+	White = CreateDefaultSubobject<UMaterial>(TEXT("White"));
 
 	SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComponent"));
 	SpringArm->SetupAttachment(GetRootComponent());
@@ -85,7 +88,7 @@ void ATicTacToe::BeginPlay()
 
 	for (int i{}; i < 9; i++)
 	{
-		Meshes[i]->SetMaterial(0, Grey);
+		Meshes[i]->SetMaterial(0, White);
 	}
 }
 
@@ -176,14 +179,94 @@ void ATicTacToe::TurnController(int meshindex)
 
 	if (TurnCounter % 2 == 0)
 	{
-		Meshes[meshindex]->SetMaterial(0, Red);
+		Meshes[meshindex]->SetMaterial(0, Blue);
 	}
 	else if (TurnCounter % 2 == 1)
 	{
-		Meshes[meshindex]->SetMaterial(0, Blue);
+		Meshes[meshindex]->SetMaterial(0, Red);
 	}
 	MeshStatus[meshindex] = true;
 	TurnCounter++;
 }
+
+bool ATicTacToe::WinConditionBlue()
+{
+	for (int i = 0; i < 8; i++) 
+	{
+		bool WinnerBlue = (Meshes[0] == Meshes[1]) && (Meshes[1] == Meshes[2]);
+		if (WinnerBlue) return true;
+
+		WinnerBlue = (Meshes[3] == Meshes[4]) && (Meshes[4] == Meshes[5]);
+		if (WinnerBlue) return true;
+
+		WinnerBlue = (Meshes[6] == Meshes[7]) && (Meshes[7] == Meshes[8]);
+		if (WinnerBlue) return true;
+
+		WinnerBlue = (Meshes[0] == Meshes[3]) && (Meshes[3] == Meshes[6]);
+		if (WinnerBlue) return true;
+
+		WinnerBlue = (Meshes[1] == Meshes[4]) && (Meshes[4] == Meshes[7]);
+		if (WinnerBlue) return true;
+
+		WinnerBlue = (Meshes[2] == Meshes[5]) && (Meshes[5] == Meshes[8]);
+		if (WinnerBlue) return true;
+
+		WinnerBlue = (Meshes[0] == Meshes[4]) && (Meshes[4] == Meshes[8]);
+		if (WinnerBlue) return true;
+
+		WinnerBlue = (Meshes[2] == Meshes[4]) && (Meshes[4] == Meshes[6]);
+		if (WinnerBlue) return true;
+	}
+
+	return false;
+}
+
+bool ATicTacToe::WinConditionRed()
+{
+	for (int i = 0; i < 8; i++)
+	{
+		bool WinnerRed = (Meshes[0] == Meshes[1]) && (Meshes[1] == Meshes[2]);
+		if (WinnerRed) return true;
+
+		WinnerRed = (Meshes[3] == Meshes[4]) && (Meshes[4] == Meshes[5]);
+		if (WinnerRed) return true;
+
+		WinnerRed = (Meshes[6] == Meshes[7]) && (Meshes[7] == Meshes[8]);
+		if (WinnerRed) return true;
+
+		WinnerRed = (Meshes[0] == Meshes[3]) && (Meshes[3] == Meshes[6]);
+		if (WinnerRed) return true;
+
+		WinnerRed = (Meshes[1] == Meshes[4]) && (Meshes[4] == Meshes[7]);
+		if (WinnerRed) return true;
+
+		WinnerRed = (Meshes[2] == Meshes[5]) && (Meshes[5] == Meshes[8]);
+		if (WinnerRed) return true;
+
+		WinnerRed = (Meshes[0] == Meshes[4]) && (Meshes[4] == Meshes[8]);
+		if (WinnerRed) return true;
+
+		WinnerRed = (Meshes[2] == Meshes[4]) && (Meshes[4] == Meshes[6]);
+		if (WinnerRed) return true;
+	}
+
+	return false;
+}
+
+
+void ATicTacToe::EndGame()
+{
+	const bool WinnerRed = WinConditionRed();
+	if (WinnerRed)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Player 1 (Blue Player) Wins"));
+	}
+	else if (WinConditionRed() == true)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Player 2 (Red Player) Wins"));
+	}
+}
+
+
 
 
